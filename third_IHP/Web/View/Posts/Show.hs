@@ -13,4 +13,5 @@ instance View ShowView where
         </nav>
         <h1>{get #title post}</h1>
         <p>{get #body post}</p>
+        <p>{timeAgo (get #createdAt post )}</p>
     |]
