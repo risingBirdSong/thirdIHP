@@ -32,7 +32,7 @@ instance Controller PostsController where
                 Right post -> do
                     post <- post |> updateRecord
                     setSuccessMessage "Post updated"
-                    redirectTo EditPostAction { .. }
+                    redirectTo PostsAction
 
     action CreatePostAction = do
         let post = newRecord @Post
@@ -53,3 +53,5 @@ instance Controller PostsController where
 
 buildPost post = post
     |> fill @["title","body"]
+    |> validateField #title nonEmpty 
+    |> validateField #body nonEmpty
