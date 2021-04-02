@@ -21,7 +21,10 @@ data PostsController
 
 data CommentsController
     = CommentsAction
-    | NewCommentAction
+    -- we add postId to our type here because all NewComments will have a Post that they belong to
+    | NewCommentAction { postId :: !(Id Post) }
+    -- | NewCommentAction { postdId :: !(Id Post) } this typo here resulted in Ambiguous occurrence ‘postId’ (in readme)
+
     | ShowCommentAction { commentId :: !(Id Comment) }
     | CreateCommentAction
     | EditCommentAction { commentId :: !(Id Comment) }

@@ -15,5 +15,6 @@ instance View ShowView where
         <p>{get #body post}</p>
         <p>{timeAgo (get #createdAt post )}</p>
         <!-- <p>{get #createdAt post |> timeAgo}</p> -->
+        <a href={NewCommentAction (get #id post)} > Add new Comment</a>
 
     |]
