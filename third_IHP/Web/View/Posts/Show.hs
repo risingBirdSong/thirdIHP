@@ -14,4 +14,6 @@ instance View ShowView where
         <h1>{get #title post}</h1>
         <p>{get #body post}</p>
         <p>{timeAgo (get #createdAt post )}</p>
+        <!-- <p>{get #createdAt post |> timeAgo}</p> -->
+
     |]
